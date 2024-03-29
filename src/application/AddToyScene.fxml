@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.SampleController">
+   <right>
+      <AnchorPane prefHeight="656.0" prefWidth="893.0" BorderPane.alignment="CENTER">
+         <children>
+            <AnchorPane layoutX="7.0" layoutY="14.0" prefHeight="537.0" prefWidth="874.0" />
+            <Button layoutX="398.0" layoutY="564.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="97.0" text="Buy" />
+         </children>
+      </AnchorPane>
+   </right>
+   <left>
+      <AnchorPane prefHeight="656.0" prefWidth="370.0" BorderPane.alignment="CENTER">
+         <children>
+            <AnchorPane prefHeight="53.0" prefWidth="370.0">
+               <children>
+                  <Text layoutX="14.0" layoutY="-29.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Enter New Toy Information:" translateY="50.0" wrappingWidth="228.13671875">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Text>
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutY="73.0" prefHeight="362.0" prefWidth="373.0">
+               <children>
+                  <Label layoutX="14.0" layoutY="4.0" text="Category">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <ChoiceBox fx:id="categoryBox" layoutX="147.0" layoutY="2.0" prefWidth="150.0" />
+                  <Label layoutX="14.0" layoutY="26.0" text="Serial Number" translateY="31.0">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <TextField layoutX="147.0" layoutY="24.0" prefHeight="25.0" prefWidth="153.0" translateY="31.0" />
+                  <Label layoutX="14.0" layoutY="58.0" text="Name" translateY="31.0">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <TextField layoutX="147.0" layoutY="55.0" prefHeight="25.0" prefWidth="153.0" translateY="31.0" />
+                  <Label layoutX="14.0" layoutY="89.0" text="Type" translateY="31.0">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <TextField layoutX="147.0" layoutY="86.0" prefHeight="25.0" prefWidth="153.0" translateY="31.0" />
+                  <Label layoutX="14.0" layoutY="120.0" text="Brand" translateY="31.0">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <TextField layoutX="147.0" layoutY="117.0" prefHeight="25.0" prefWidth="153.0" translateY="31.0" />
+                  <Label layoutX="14.0" layoutY="151.0" text="Price" translateY="31.0">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <TextField layoutX="147.0" layoutY="148.0" prefHeight="25.0" prefWidth="153.0" translateY="31.0" />
+                  <Label layoutX="14.0" layoutY="182.0" text="Available-count" translateY="31.0">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <TextField layoutX="147.0" layoutY="179.0" prefHeight="25.0" prefWidth="153.0" translateY="31.0" />
+                  <Label layoutX="14.0" layoutY="213.0" text="Age-appropriate" translateY="31.0">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <TextField layoutX="147.0" layoutY="210.0" prefHeight="25.0" prefWidth="153.0" translateY="31.0" />
+               </children>
+            </AnchorPane>
+            <Button layoutX="137.0" layoutY="451.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="97.0" text="Save" />
+         </children>
+      </AnchorPane>
+   </left>
+   <top>
+      <AnchorPane prefHeight="64.0" prefWidth="840.0" BorderPane.alignment="CENTER">
+         <children>
+            <AnchorPane fx:id="MenuBar" prefHeight="27.0" prefWidth="1280.0">
+               <children>
+                  <Button layoutX="14.0" layoutY="-2.0" mnemonicParsing="false" onAction="#switchToHomeScene" text="Home" />
+                  <Button layoutX="63.0" layoutY="-2.0" mnemonicParsing="false" onAction="#switchToAddToys" text="Add Toy" />
+                  <Button layoutX="124.0" layoutY="-2.0" mnemonicParsing="false" text="Remove Toy" />
+               </children>
+            </AnchorPane>
+            <Text fx:id="companyLogo" layoutX="510.0" layoutY="51.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome To Toy Store Company" textAlignment="CENTER">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+         </children>
+      </AnchorPane>
+   </top>
+</BorderPane>

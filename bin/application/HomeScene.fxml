@@ -2,8 +2,6 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.Menu?>
-<?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -11,8 +9,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
-<BorderPane prefHeight="720.0" prefWidth="1280.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/21" fx:controller="application.SampleController">
+<BorderPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.SampleController">
    <right>
       <AnchorPane prefHeight="656.0" prefWidth="893.0" BorderPane.alignment="CENTER">
          <children>
@@ -78,13 +75,13 @@
    <top>
       <AnchorPane prefHeight="64.0" prefWidth="840.0" BorderPane.alignment="CENTER">
          <children>
-            <MenuBar fx:id="menuBar" prefHeight="25.0" prefWidth="1280.0">
-              <menus>
-                <Menu mnemonicParsing="false" text="Home" />
-                <Menu mnemonicParsing="false" text="Add Toy" />
-                <Menu mnemonicParsing="false" text="Remove Toy" />
-              </menus>
-            </MenuBar>
+            <AnchorPane fx:id="MenuBar" prefHeight="27.0" prefWidth="1280.0">
+               <children>
+                  <Button layoutX="14.0" layoutY="-2.0" mnemonicParsing="false" onAction="#switchToAddToys" text="Home" />
+                  <Button layoutX="63.0" layoutY="-2.0" mnemonicParsing="false" onAction="#switchToAddToys" text="Add Toy" />
+                  <Button layoutX="124.0" layoutY="-2.0" mnemonicParsing="false" text="Remove Toy" />
+               </children>
+            </AnchorPane>
             <Text fx:id="companyLogo" layoutX="510.0" layoutY="51.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome To Toy Store Company" textAlignment="CENTER">
                <font>
                   <Font size="18.0" />
