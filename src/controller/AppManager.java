@@ -33,85 +33,15 @@ public class AppManager {
     public void run(){
         toys = new ArrayList<Toys>();
         loadFiles();
-        displayMenuMethod();
     }
 
-    /**
-     * The Main Menu method
-     * This method displays the main menu and handles the user's input
-     */
-    public void displayMenuMethod(){
-        menu.displayMenu();
-        Scanner input = new Scanner(System.in);
-        int option = input.nextInt();
-
-        switch (option){
-            case 1:
-                searchInventory();
-                break;
-            case 2:
-                addNewToy();
-                break;
-            case 3:
-                removeToy();
-                break;
-            case 4:
-                try {
-                    giftSuggestion();
-                } catch (giftSuggestionException e) {
-                    e.printStackTrace();
-                }
-                break;
-            case 5:
-                save();
-                System.exit(0);
-            default:
-                System.out.println("Invalid option. Please try again.");
-                displayMenuMethod();
-                break;
-        }
-
-        input.close();
-    }
-
-    /**
-     * The Search Menu method
-     * This method handles the search inventory option
-     */
-    public void searchInventory(){
-        menu.displaySearchMenu();
-        Scanner input = new Scanner(System.in);
-        int option = input.nextInt();
-
-        switch (option){
-            case 1:
-                searchBySerialNumber();
-                break;
-            case 2:
-                searchByToyName();
-                break;
-            case 3:
-                searchByToyType();
-                break;
-            case 4:
-                displayMenuMethod();
-                break;
-            default:
-                System.out.println("Invalid option. Please try again.");
-                searchInventory();
-                break;
-        }
-
-        input.close();
-    }
 
     /**
      * This method handles the search by serial number option
      * It prompts the user to enter a serial number and then searches the inventory for the toy with that serial number
      * If the toy is found, it prompts the user to purchase it and then updates the toy's available count
      */
-    public void searchBySerialNumber(){
-        String serialNumber = menu.promoteSerialNumberInput(); // Prompts the user to enter a serial number
+    public String searchBySerialNumber(String serialNumber){
         ArrayList<Toys> foundToys = new ArrayList<Toys>(); // This will store the found toys
 
         // Search the inventory for the toy with the given serial number
@@ -120,8 +50,11 @@ public class AppManager {
                 foundToys.add(toy);
             }
         }
+        
+        String text = menu.searchResultPrompt(foundToys);
+        
+        return text;
 
-        searchProsses(foundToys);
     }
 
     /**
@@ -129,8 +62,7 @@ public class AppManager {
      * It prompts the user to enter a toy name and then searches the inventory for the toy with that name
      * If the toy is found, it prompts the user to purchase it and then updates the toy's available count
      */
-    public void searchByToyName(){
-        String toyName = menu.promoteToyNameInput(); // Prompts the user to enter a toy name
+    public String searchByToyName(String toyName){
         ArrayList<Toys> foundToys = new ArrayList<Toys>(); // This will store the found toys
 
         // Search the inventory for the toy with the given name
@@ -140,7 +72,8 @@ public class AppManager {
             }
         }
 
-        searchProsses(foundToys);
+        String text = menu.searchResultPrompt(foundToys);
+        return text;
     }
 
     /**
@@ -148,8 +81,7 @@ public class AppManager {
      * It prompts the user to enter a toy type and then searches the inventory for the toy with that type
      * If the toy is found, it prompts the user to purchase it and then updates the toy's available count
      */
-    public void searchByToyType(){
-        String toyType = menu.promoteToyTypeInput(); // Prompts the user to enter a toy type
+    public String searchByToyType(String toyType){
         ArrayList<Toys> foundToys = new ArrayList<Toys>(); // This will store the found toys
 
         // Search the inventory for the toy with the given type
@@ -159,7 +91,8 @@ public class AppManager {
             }
         }
 
-        searchProsses(foundToys);
+        String text = menu.searchResultPrompt(foundToys);
+        return text;
     }
 
     public void addNewToy() {
@@ -220,7 +153,6 @@ public class AppManager {
                 break;
              }
          }
-         displayMenuMethod();
         
      }
  
@@ -281,12 +213,8 @@ public class AppManager {
             }
             System.out.println("The Transaction is Seccessfully Terminated!");
         }
-        else{
-            System.out.println("You are back to the search menu");
-        }
+       
 
-        // Go back to the search menu
-        displayMenuMethod();
     }
 
    

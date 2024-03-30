@@ -80,30 +80,44 @@ public class AppMenu {
      * @return SNNumber
      */
     public String searchResultPrompt(ArrayList<Toys> foundToys) {
-        String SNNumber = null;
-        int i;
+        StringBuilder textBuilder = new StringBuilder();
+        String header = String.format("%-20s|%-20s|%-4s|%-4s\n", "Index", "Toy Name", "Avaliable count", "Price");
 
-        System.out.println("Here are the search results\n");
-        // Display the search results
-        for (i = 0; i < foundToys.size(); i++) {
-            System.out.printf("(%d)\t%s\n", i + 1, foundToys.get(i).getName());
+        textBuilder.append("Here are the search results:\n");
+        textBuilder.append(header);
+
+        for (int i = 0; i < foundToys.size(); i++) {
+            Toys toy = foundToys.get(i);
+            
+            String index = String.format("%-4s", i + 1);
+            String toyName = String.format("%-35s", toy.getName());
+            String attribute1 = String.format("%-14s", toy.getAvaiableCount());
+            String attribute2 = String.format("%-8s", toy.getPrice());
+
+            
+            String line = String.format("%s%s%s%s\n", index, toyName, attribute1, attribute2);
+            textBuilder.append(line);
         }
-        i++;
-        System.out.printf("(%d)\tBack To Search Menu\n", i);
-        System.out.println("Enter option to purchase: ");
+
+        return textBuilder.toString();
+    
+
 
         // Prompt the user to select a toy from the search results to purchase or go
         // back to the search menu
-        String option = input.nextLine();
-        if (option.equals(Integer.toString(i))) {
-            return null;
-        } else {
-            Toys selectedToy = foundToys.get(Integer.parseInt(option) - 1);
-            SNNumber = selectedToy.getSN();
-        }
-
-        return SNNumber;
+        
+        
+//        String option = input.nextLine();
+//        if (option.equals(Integer.toString(i))) {
+//            return null;
+//        } else {
+//            Toys selectedToy = foundToys.get(Integer.parseInt(option) - 1);
+//            SNNumber = selectedToy.getSN();
+//        }
+//
+//        return SNNumber;
     }
+    
 
     public String[] addNewToyPrompt() {
         String[] userentry = new String[10];

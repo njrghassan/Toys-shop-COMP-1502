@@ -6,6 +6,7 @@ import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import javafx.fxml.FXMLLoader;
 
+
 /**
  * The main class for the Store applicaiton
  * @author Ghassan Alnajjar
@@ -13,10 +14,10 @@ import javafx.fxml.FXMLLoader;
  */
 public class Main extends Application{
 	@Override
-	public void start(Stage primaryStage) {
+	public void start(Stage primaryStage){
 		try {
 			// Main scene
-			BorderPane root = (BorderPane)FXMLLoader.load(getClass().getResource("HomeScene.fxml"));
+			BorderPane root = (BorderPane)FXMLLoader.load(getClass().getResource("Sample.fxml"));
 			Scene scene = new Scene(root);
 			
 			// CSS file imported
