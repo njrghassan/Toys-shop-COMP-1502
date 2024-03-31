@@ -9,7 +9,7 @@ import javafx.fxml.FXMLLoader;
 
 /**
  * The main class for the Store applicaiton
- * @author Ghassan Alnajjar
+ * @author Ghassan Alnajjar, Akram Altabba
  * @version 1.0
  */
 public class Main extends Application{
