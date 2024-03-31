@@ -7,7 +7,9 @@ import controller.AppManager;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.Tab;
@@ -64,6 +66,81 @@ public class SampleController implements Initializable{
 
     @FXML
     private AnchorPane searchTypeContainer;
+    @FXML
+    private Button SaveButton;
+
+
+    @FXML
+    private Label animalTitle;
+
+    @FXML
+    private Label bgTitle;
+   
+    @FXML
+    private Label figTitle;
+
+    @FXML
+    private Tab homeTab1;
+
+    @FXML
+    private Label puzzleTitle;
+
+    @FXML
+    private Button searchButton;
+
+    @FXML
+    private Button searchButton1;
+
+
+    @FXML
+    private Text searchResult1;
+
+
+    @FXML
+    private AnchorPane searchTypeContainer1;
+
+
+    @FXML
+    private TextField serialNumSeFeild1;
+    
+    @FXML
+    private TextField serialNum;
+
+    @FXML
+    private TextField toyAge;
+
+    @FXML
+    private TextField toyBrand;
+
+    @FXML
+    private TextField toyName;
+
+    @FXML
+    private TextField toyType;
+
+    int addSn;
+    String addName;
+    String addBrand;
+    int addAge;
+    String addType;
+    
+
+
+    @FXML
+    void getSelectedRadio(ActionEvent event) {
+    	
+
+    }
+
+    @FXML
+    public void submit(ActionEvent event) {
+    	addSn = Integer.parseInt(serialNum.getText());
+    	addName = toyName.getText();
+    	addBrand = toyBrand.getText();
+    	addAge = Integer.parseInt(toyAge.getText());
+    	addType = toyType.getText();
+    }
+
 
     @FXML
     private ComboBox<String> categoryBox;
