@@ -79,27 +79,23 @@ public class AppMenu {
      * @param foundToys
      * @return SNNumber
      */
-    public String searchResultPrompt(ArrayList<Toys> foundToys) {
-        StringBuilder textBuilder = new StringBuilder();
-        String header = String.format("%-20s|%-20s|%-4s|%-4s\n", "Index", "Toy Name", "Avaliable count", "Price");
-
-        textBuilder.append("Here are the search results:\n");
-        textBuilder.append(header);
-
+    public String[] searchResultPrompt(ArrayList<Toys> foundToys) {
+   
+        String line[] = null;
         for (int i = 0; i < foundToys.size(); i++) {
             Toys toy = foundToys.get(i);
             
-            String index = String.format("%-4s", i + 1);
-            String toyName = String.format("%-35s", toy.getName());
-            String attribute1 = String.format("%-14s", toy.getAvaiableCount());
-            String attribute2 = String.format("%-8s", toy.getPrice());
+            String index = String.format("%s", i + 1);
+            String toyName = String.format("%s", toy.getName());
+            String Price = String.format("%s", toy.getPrice());
+            String avaiableCount = String.format("%s", toy.getAvaiableCount());
 
             
-            String line = String.format("%s%s%s%s\n", index, toyName, attribute1, attribute2);
-            textBuilder.append(line);
+            line = new String[] {index, toyName, Price, avaiableCount};
+            
         }
 
-        return textBuilder.toString();
+        return line;
     
 
 

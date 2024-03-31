@@ -8,6 +8,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.ListView;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.Tab;
@@ -16,6 +17,7 @@ import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
+import model.Toys;
 import view.AppMenu;
 
 public class SampleController implements Initializable{
@@ -54,14 +56,26 @@ public class SampleController implements Initializable{
     private TextField typeNumSeFeild;
     
     @FXML
-    private Text searchResult;
-    
-    @FXML
     private ScrollPane scrollPane;
     
     @FXML
     private VBox vBoxScroll;
-
+    
+    @FXML
+    private Text numR;
+    
+    @FXML
+    private Text nameR;
+    
+    @FXML
+    private Text priceR;
+    
+    @FXML
+    private Text avR;
+    
+    @FXML
+    private ListView<String> listViewMenu;
+    
     @FXML
     private AnchorPane searchTypeContainer;
 
@@ -89,9 +103,9 @@ public class SampleController implements Initializable{
 				
 		// ComboBox items init
         categoryBox.getItems().addAll(categories);
-        categoryBox.setOnAction(this::getSelectedItem);   
+        categoryBox.setOnAction(this::getSelectedItem);
         
-		
+
 
     }
 	
@@ -119,14 +133,84 @@ public class SampleController implements Initializable{
 	public void searchButtonAction(ActionEvent e) {
 		if (snRadioButton.isSelected()) {
             String sn = serialNumSeFeild.getText();
-            searchResult.setText(manager.searchBySerialNumber(sn));
-        } else if (nameRadioButton.isSelected()) {
+            String index = "";
+            listViewMenu.getItems().clear();
+            int i = 1;
+			for (Toys listText : manager.searchBySerialNumber(sn)) {
+				if (i < 10) {
+					index = String.valueOf(i) + " ";
+				}
+				else {
+					index = String.valueOf(i);
+				}
+				
+				listViewMenu.getItems().addAll(index+
+						" " + listText.getName() + 
+						" " + listText.getBrand()+ 
+						" " + listText.getPrice()+ 
+						" " + listText.getAvaiableCount());
+				
+				// Reset index
+				i++;
+				index = String.valueOf(i);
+				
+            }
+
+            
+            
+        } 
+		else if (nameRadioButton.isSelected()) {
             String name = nameNumSeFeild.getText();
-            searchResult.setText(manager.searchByToyName(name));
-        } else if (typeRadioButton.isSelected()) {
+            String index = "";
+            listViewMenu.getItems().clear();
+            int i = 1;
+			for (Toys listText : manager.searchByToyName(name)) {
+				if (i < 10) {
+					index = String.valueOf(i) + " ";
+				}
+				else {
+					index = String.valueOf(i);
+				}
+				
+				listViewMenu.getItems().addAll(index+
+						" " + listText.getName() + 
+						" " + listText.getBrand()+ 
+						" " + listText.getPrice()+ 
+						" " + listText.getAvaiableCount());
+				
+				// Reset index
+				i++;
+				index = String.valueOf(i);
+				
+            }
+        } 
+        else if (typeRadioButton.isSelected()) {
             String type = typeNumSeFeild.getText();
-            searchResult.setText(manager.searchByToyType(type));
+            String index = "";
+            listViewMenu.getItems().clear();
+            int i = 1;
+			for (Toys listText : manager.searchByToyType(type)) {
+				if (i < 10) {
+					index = String.valueOf(i) + " ";
+				}
+				else {
+					index = String.valueOf(i);
+				}
+				
+				listViewMenu.getItems().addAll(index+
+						" " + listText.getName() + 
+						" " + listText.getBrand()+ 
+						" " + listText.getPrice()+ 
+						" " + listText.getAvaiableCount());
+				
+				// Reset index
+				i++;
+				index = String.valueOf(i);
+				
+            }
+
         }
+        
     }
 	
 	
