@@ -229,3 +229,6 @@
 3;Animaladdibng;asda;2.0;2;2;Added;A
 0132456798;FFX;7shesh;-1231.0;21;21;Added
 045;asda;asda;-565.0;45;45;Added
+0;Akram;Himothy;20.0;1;18;Action Figure
+0;Ghassan;Him;40.0;1;20;Action Figure
+1;Ghassan;Him;40.0;1;20;Action Figure
