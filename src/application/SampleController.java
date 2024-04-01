@@ -484,7 +484,7 @@ public class SampleController implements Initializable{
 			
 			if (manager.removeToy(removeSN)) {
 				listViewMenuForRemoving.getItems().clear();
-				errLabelRemove.setText("Item bought successfully!");
+				errLabelRemove.setText("Item removed successfully!");
 			} else {
 				errLabelRemove.setText("Item not available!");
 			}

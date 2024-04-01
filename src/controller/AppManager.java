@@ -149,6 +149,7 @@ public class AppManager {
                 break;
              }
          }
+        save();
         return flag;
      }
  

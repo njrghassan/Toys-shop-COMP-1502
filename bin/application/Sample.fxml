@@ -269,7 +269,7 @@
                                     <Font name="Times New Roman" size="19.0" />
                                  </font>
                               </Label>
-                              <TextField fx:id="serialNumRemove" layoutX="14.0" layoutY="54.0" onAction="#searchRemove" promptText="1234567890" />
+                              <TextField fx:id="serialNumRemove" layoutX="36.0" layoutY="47.0" onAction="#searchRemove" promptText="1234567890" />
                            </children>
                         </AnchorPane>
                         <ListView fx:id="listViewMenuForRemoving" layoutX="333.0" layoutY="79.0" prefHeight="508.0" prefWidth="875.0" />
