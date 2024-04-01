@@ -7,7 +7,9 @@ import controller.AppManager;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.ScrollPane;
@@ -77,7 +79,10 @@ public class SampleController implements Initializable{
     private ListView<String> listViewMenu;
     
     @FXML
-    private AnchorPane searchTypeContainer;
+    private Button buyButton;
+    
+    @FXML
+    private Label errLabel;
 
     @FXML
     private ComboBox<String> categoryBox;
@@ -86,6 +91,11 @@ public class SampleController implements Initializable{
     AppManager manager = new AppManager();
     AppMenu menu = new AppMenu();
 
+	/**
+	 * Initializes the controller class to set the default values of the application.
+	 * @param location
+	 * @param resources
+	 */
 	@Override
     public void initialize(URL location, ResourceBundle resources) {
 		// Loading all files
@@ -96,7 +106,7 @@ public class SampleController implements Initializable{
 			e.printStackTrace();
 		}
 		
-		// Text feilds disabled
+		// Text fields disabled
 		serialNumSeFeild.setDisable(true);
 		nameNumSeFeild.setDisable(true);
 		typeNumSeFeild.setDisable(true);
@@ -109,6 +119,9 @@ public class SampleController implements Initializable{
 
     }
 	
+	/**
+	 * Controls the radio buttons to enable the text fields, depending on the selected radio button.
+	 */
 	public void getSelectedRadio() {
 		if (snRadioButton.isSelected()) {
 			serialNumSeFeild.setDisable(false);
@@ -130,7 +143,12 @@ public class SampleController implements Initializable{
 		
 	}
 	
+	/*
+	 * Search button action to search the item in the inventory.
+     * @param e
+	 */
 	public void searchButtonAction(ActionEvent e) {
+		// Search by serial number
 		if (snRadioButton.isSelected()) {
             String sn = serialNumSeFeild.getText();
             String index = "";
@@ -146,19 +164,22 @@ public class SampleController implements Initializable{
 				
 				listViewMenu.getItems().addAll(index+
 						" " + listText.getName() + 
-						" " + listText.getBrand()+ 
-						" " + listText.getPrice()+ 
-						" " + listText.getAvaiableCount());
+						"\t" + listText.getBrand()+ 
+						"\t$" + listText.getPrice()+ 
+						" \tAV:" + listText.getAvaiableCount()+
+						" \tAge:" + listText.getAgeAppropriate()+
+						"\t" + listText.getClass().getSimpleName()+
+						"\t" + listText.getSN());
+						
 				
 				// Reset index
 				i++;
 				index = String.valueOf(i);
 				
             }
-
-            
-            
-        } 
+   
+        }
+		// Search by name
 		else if (nameRadioButton.isSelected()) {
             String name = nameNumSeFeild.getText();
             String index = "";
@@ -174,16 +195,20 @@ public class SampleController implements Initializable{
 				
 				listViewMenu.getItems().addAll(index+
 						" " + listText.getName() + 
-						" " + listText.getBrand()+ 
-						" " + listText.getPrice()+ 
-						" " + listText.getAvaiableCount());
+						"\t" + listText.getBrand()+ 
+						"\t$" + listText.getPrice()+ 
+						" \tAV:" + listText.getAvaiableCount()+
+						" \tAge:" + listText.getAgeAppropriate()+
+						"\t" + listText.getClass().getSimpleName()+
+						"\t" + listText.getSN());
 				
 				// Reset index
 				i++;
 				index = String.valueOf(i);
 				
             }
-        } 
+        }
+		// Search by type
         else if (typeRadioButton.isSelected()) {
             String type = typeNumSeFeild.getText();
             String index = "";
@@ -199,9 +224,12 @@ public class SampleController implements Initializable{
 				
 				listViewMenu.getItems().addAll(index+
 						" " + listText.getName() + 
-						" " + listText.getBrand()+ 
-						" " + listText.getPrice()+ 
-						" " + listText.getAvaiableCount());
+						"\t" + listText.getBrand()+ 
+						"\t$" + listText.getPrice()+ 
+						" \tAV:" + listText.getAvaiableCount()+
+						" \tAge:" + listText.getAgeAppropriate()+
+						"\t" + listText.getClass().getSimpleName()+
+						"\t" + listText.getSN());
 				
 				// Reset index
 				i++;
@@ -213,12 +241,35 @@ public class SampleController implements Initializable{
         
     }
 	
-	
-//	private void addTextToContainer(String text) {
-//        Text newText = new Text(text);
-//        textContainer.getChildren().add(newText);
-//    }
+	/*
+	 * Buy button action to buy the item from the inventory.
+	 * @param e
+	 */
+	public void buyButtonAction(ActionEvent e) {	
+		try {
+			String selectedItem = listViewMenu.getSelectionModel().getSelectedItem();
+			String[] parts = selectedItem.split("\t");
+			String sn = parts[parts.length-1];
+			
+			if (manager.buyToy(sn)) {
+				listViewMenu.getItems().clear();
+				errLabel.setText("Item bought successfully!");
+			} else {
+				errLabel.setText("Item not available!");
+			}
+		}
+		catch (NullPointerException ex) {
+			errLabel.setText("Please select an item!");
+		}
+		catch (Exception ex) {
+			errLabel.setText(ex.getMessage());
+		}
+	}	
 
+	/**
+	 * Controls the category box to get the selected item.
+	 * @param e
+	 */
 	public void getSelectedItem(ActionEvent e) {
 		String classSelected = categoryBox.getValue();
 		System.out.println(classSelected);

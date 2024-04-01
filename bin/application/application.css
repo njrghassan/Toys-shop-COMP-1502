@@ -1,5 +1,5 @@
 /* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
 
-#MenuBar{
-	-fx-background-color: red;
+#searchTypeContainer{
+	-fx-border-width: 10px;
 }
