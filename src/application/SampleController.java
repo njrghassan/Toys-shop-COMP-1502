@@ -317,16 +317,39 @@ public class SampleController implements Initializable{
 		try {
 		if (classSelected == "Figures") {
 			figClass.setDisable(false);
+			aniMat.setDisable(true);
+			aniSize.setDisable(true);
+			puzType.setDisable(true);
+			boardMax.setDisable(true);
+			boardMin.setDisable(true);
+			boardDesign.setDisable(true);
+
+
 					}
 		else if (classSelected == "Animals") {
+			figClass.setDisable(true);
 			aniMat.setDisable(false);
 			aniSize.setDisable(false);
+			puzType.setDisable(true);
+			boardMax.setDisable(true);
+			boardMin.setDisable(true);
+			boardDesign.setDisable(true);
 					}
 		else if (classSelected == "Puzzles") {
+			figClass.setDisable(true);
+			aniMat.setDisable(true);
+			aniSize.setDisable(true);
 			puzType.setDisable(false);
+			boardMax.setDisable(true);
+			boardMin.setDisable(true);
+			boardDesign.setDisable(true);
 			
 		}
 		else if (classSelected == "Board Games") {
+			figClass.setDisable(true);
+			aniMat.setDisable(true);
+			aniSize.setDisable(true);
+			puzType.setDisable(true);
 			boardMax.setDisable(false);
 			boardMin.setDisable(false);
 			boardDesign.setDisable(false);
