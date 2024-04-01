@@ -229,15 +229,12 @@
 3;Animaladdibng;asda;2.0;2;2;Added;A
 0132456798;FFX;7shesh;-1231.0;21;21;Added
 045;asda;asda;-565.0;45;45;Added
-<<<<<<< HEAD
-0;Akram;adsa;123.0;123;21;da
+0;Akram;adsa;123.0;122;21;da
 0546546;adsad;adsa;12321.0;123;21321;adsa
 23121;adsad;adsa;12321.0;123;21321;ada;a
 6754234;adsad;adsa;12321.0;123;21321;x
 987654;sfsd;sdf;4324.0;234;2342;2-44;fsdfsdf,sdfsdfsdfsd
-0;Akram;lands of lands;12.0;123;1231;adsadsa
-=======
-0;Akram;Himothy;20.0;1;18;Action Figure
-0;Ghassan;Him;40.0;1;20;Action Figure
+0;Akram;lands of lands;12.0;122;1231;adsadsa
+0;Akram;Himothy;20.0;0;18;Action Figure
+0;Ghassan;Him;40.0;0;20;Action Figure
 1;Ghassan;Him;40.0;1;20;Action Figure
->>>>>>> 835c6df520b2cc18f2e1a671d6bd5f93a1c9f239

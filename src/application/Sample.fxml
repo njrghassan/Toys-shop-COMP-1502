@@ -84,9 +84,14 @@
                            </children>
                         </AnchorPane>
                         <Button fx:id="searchButton" layoutX="17.0" layoutY="450.0" mnemonicParsing="false" onAction="#searchButtonAction" prefHeight="34.0" prefWidth="97.0" text="Search" translateX="50.0" translateY="50.0" />
-                        <Button layoutX="152.0" layoutY="450.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="97.0" text="Clear" translateX="50.0" translateY="50.0" />
+                        <Button fx:id="clearButton" layoutX="152.0" layoutY="450.0" mnemonicParsing="false" onAction="#clearButtonAction" prefHeight="34.0" prefWidth="97.0" text="Clear" translateX="50.0" translateY="50.0" />
                         <ListView fx:id="listViewMenu" layoutX="378.0" layoutY="61.0" prefHeight="508.0" prefWidth="875.0" />
-                        <Button layoutX="740.0" layoutY="547.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="97.0" text="Buy" translateX="50.0" translateY="50.0" />
+                        <Button layoutX="740.0" layoutY="547.0" mnemonicParsing="false" onAction="#buyButtonAction" prefHeight="34.0" prefWidth="97.0" text="Buy" translateX="50.0" translateY="50.0" />
+                        <Label fx:id="errLabel" layoutX="825.0" layoutY="647.0" textAlignment="CENTER">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
                      </children>
                   </AnchorPane>
             </content>
