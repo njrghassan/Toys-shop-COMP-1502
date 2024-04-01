@@ -226,7 +226,7 @@
 75558;sada;asd;2.0;2;2;0-2;asdsadaasdad
 70005;asdsa;Akram;5.6;5;9;0-5;asdadAkram
 85559;asda;asda;2.0;2;2;0-55;afdsa,Akrean
-0;Akram;land of lands;14.6;151;18;Added
+0;Akram;land of lands;14.6;149;18;Added
 3;Animaladdibng;asda;2.0;2;2;Added;A
 0132456798;FFX;7shesh;-1231.0;21;21;Added
 045;asda;asda;-565.0;45;45;Added

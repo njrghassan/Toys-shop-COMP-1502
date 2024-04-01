@@ -188,7 +188,7 @@ public class AppManager {
             }
         }
 
-        searchProsses(foundToys);
+//        searchProsses(foundToys);
     }
 
     /**
@@ -196,10 +196,9 @@ public class AppManager {
      * It prompts the user to enter a toy type and then searches the inventory for the toy with that type
      * If the toy is found, it prompts the user to purchase it and then updates the toy's available count
      */
-    public void searchProsses(ArrayList<Toys> foundToys){
+    public boolean buyToy(String purchsed){
+    	boolean isPurchased = false;
         // If the toy is found, prompt the user to purchase it and then update the toy's available count
-//        String purchsed = menu.searchResultPrompt(foundToys);
-        String purchsed = null;
         if (purchsed != null){
             System.out.println("You have purchased " + purchsed);
 
@@ -209,9 +208,11 @@ public class AppManager {
                 }
             }
             System.out.println("The Transaction is Seccessfully Terminated!");
+            isPurchased = true;
         }
-       
-
+        
+        save();
+        return isPurchased;
     }
 
    
@@ -342,8 +343,6 @@ public class AppManager {
                     file.close();
                 }
             }
-        }
-        
-        System.out.println("******* THANKS FOR VISITTING US *******");
+        }        
     }
 }
