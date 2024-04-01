@@ -289,11 +289,8 @@ public class SampleController implements Initializable{
 				// Reset index
 				i++;
 				index = String.valueOf(i);
-				
             }
-
-        }
-        
+        } 
     }
 	
 	/*
@@ -375,10 +372,15 @@ public class SampleController implements Initializable{
 			ex.printStackTrace();
 			
 		}
-		
+	}
 	
-	
-
+	@FXML
+	public void clearButtonAction(ActionEvent e) {
+		serialNumSeFeild.clear();
+		nameNumSeFeild.clear();
+		typeNumSeFeild.clear();
+		listViewMenu.getItems().clear();
+		errLabel.setText("");	
 	}
 	
 	@FXML
