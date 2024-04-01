@@ -383,27 +383,27 @@ public class SampleController implements Initializable{
 	
 	@FXML
     public void submit(ActionEvent event) {
-    	String addSn;
-        String addName;
-        String addBrand;
-        String addAge;
-        String addType;
-        String availableCount;
-        String addPrice;
+		// Get all the input values
+    	String addSn,
+    		   addName,
+    		   addBrand,
+    		   addAge,
+    		   availableCount,
+    		   addPrice;
         
+    	// Class inputs values
         String classification = null,
         		material = null,
         		size = null,
         		puzzleType = null,
         		designer = null,
         		minimum = null,
-        		maximum = null,
-        		addDesigner = null;
+        		maximum = null;
         
+        // Get the selected category
 		String classSelected = categoryBox.getValue();
         if (classSelected == "Figures") {
         	classification = figClass.getText();
-			System.out.println("yeay");
         }
 		else if (classSelected == "Animals") {
 			material = aniMat.getText();
@@ -417,20 +417,18 @@ public class SampleController implements Initializable{
 			minimum = boardMin.getText();
 			designer = boardDesign.getText(); 
 		}
-        
-        
-    	
-    	
+
+    	// Add the toy to the inventory
     	try {
-    		availableCount = toysAvailable.getText();
     		addSn = serialNum.getText();
         	addName = toyName.getText();
         	addBrand = toyBrand.getText();
-        	addAge = toyAge.getText();
-        	addType = toyType.getText();
         	addPrice = toyPrice.getText();
+    		availableCount = toysAvailable.getText();
+        	addAge = toyAge.getText();
+
         	
-        	String[] userInput = {classSelected, addSn, addName, addBrand, addPrice, availableCount, addAge, classification, puzzleType, material, size, minimum, maximum, addDesigner };
+        	String[] userInput = {classSelected, addSn, addName, addBrand, addPrice, availableCount, addAge, classification, puzzleType, material, size, minimum, maximum, designer };
         	System.out.println(userInput);
         	manager.addNewToy(userInput);
     	}
@@ -474,8 +472,6 @@ public class SampleController implements Initializable{
 				index = String.valueOf(i);
 				
             }
-			
-			System.out.println("asnjkdsagdsasad");
 		}
 	}
 	
@@ -483,7 +479,8 @@ public class SampleController implements Initializable{
     public void remove(ActionEvent event) {
 		try {
 			String selectedItem = listViewMenuForRemoving.getSelectionModel().getSelectedItem();
-			String removeSN = serialNumRemove.getText();
+			String[] parts = selectedItem.split("\t");
+			String removeSN = parts[parts.length-1];
 			
 			if (manager.removeToy(removeSN)) {
 				listViewMenuForRemoving.getItems().clear();

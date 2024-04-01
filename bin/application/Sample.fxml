@@ -104,7 +104,7 @@
                               </Text>
                            </children>
                         </AnchorPane>
-                        <AnchorPane layoutX="-1.0" layoutY="129.0" prefHeight="337.0" prefWidth="324.0" translateY="-30.0">
+                        <AnchorPane layoutX="-1.0" layoutY="129.0" prefHeight="272.0" prefWidth="324.0" translateY="-30.0">
                            <children>
                               <Label layoutX="14.0" layoutY="14.0" text="Category">
                                  <font>
@@ -124,39 +124,33 @@
                                  </font>
                               </Label>
                               <TextField fx:id="toyName" layoutX="147.0" layoutY="56.0" translateY="31.0" />
-                              <Label layoutX="14.0" layoutY="89.0" text="Type" translateY="31.0">
+                              <Label layoutX="14.0" layoutY="120.0" text="Brand">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
                               </Label>
-                              <TextField fx:id="toyType" layoutX="147.0" layoutY="87.0" translateY="31.0" />
-                              <Label layoutX="14.0" layoutY="120.0" text="Brand" translateY="31.0">
+                              <TextField fx:id="toyBrand" layoutX="147.0" layoutY="118.0" />
+                              <Label layoutX="14.0" layoutY="151.0" text="Price">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
                               </Label>
-                              <TextField fx:id="toyBrand" layoutX="147.0" layoutY="118.0" translateY="31.0" />
-                              <Label layoutX="14.0" layoutY="151.0" text="Price" translateY="31.0">
+                              <TextField fx:id="toyPrice" layoutX="147.0" layoutY="149.0" />
+                              <Label layoutX="14.0" layoutY="181.0" text="Available-count">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
                               </Label>
-                              <TextField fx:id="toyPrice" layoutX="147.0" layoutY="149.0" translateY="31.0" />
-                              <Label layoutX="14.0" layoutY="181.0" text="Available-count" translateY="31.0">
+                              <TextField fx:id="toysAvailable" layoutX="147.0" layoutY="179.0" />
+                              <Label layoutX="14.0" layoutY="212.0" text="Age-appropriate">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
                               </Label>
-                              <TextField fx:id="toysAvailable" layoutX="147.0" layoutY="179.0" translateY="31.0" />
-                              <Label layoutX="14.0" layoutY="212.0" text="Age-appropriate" translateY="31.0">
-                                 <font>
-                                    <Font size="14.0" />
-                                 </font>
-                              </Label>
-                              <TextField fx:id="toyAge" layoutX="147.0" layoutY="210.0" translateY="31.0" />
+                              <TextField fx:id="toyAge" layoutX="147.0" layoutY="210.0" />
                            </children>
                         </AnchorPane>
-                        <Button fx:id="SaveButton" layoutX="84.0" layoutY="473.0" mnemonicParsing="false" onAction="#submit" prefHeight="34.0" prefWidth="155.0" text="Save" translateY="-30.0" />
+                        <Button fx:id="SaveButton" layoutX="84.0" layoutY="428.0" mnemonicParsing="false" onAction="#submit" prefHeight="34.0" prefWidth="155.0" text="Save" translateY="-30.0" />
                         <AnchorPane layoutX="320.0" layoutY="71.0" prefHeight="532.0" prefWidth="961.0" translateY="-60.0">
                            <children>
                               <GridPane layoutX="60.0" layoutY="38.0" prefHeight="456.0" prefWidth="842.0">

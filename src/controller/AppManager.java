@@ -51,7 +51,6 @@ public class AppManager {
             }
         }
           
-        System.out.println(foundToys);
         return foundToys;
 
     }
@@ -103,7 +102,7 @@ public class AppManager {
         else if (addToy[0] == "Puzzles"){
             toys.add(new Puzzles(addToy[1], addToy[2], addToy[3], Double.parseDouble(addToy[4]), Integer.parseInt(addToy[5]), Integer.parseInt(addToy[6]), addToy[8].charAt(0)));
         }
-        else if (addToy[0] == "BoardGames"){
+        else if (addToy[0] == "Board Games"){
             int minPlayers = Integer.parseInt(addToy[11]);
             int maxPlayers = Integer.parseInt(addToy[12]);
             String[] designers;
@@ -119,7 +118,6 @@ public class AppManager {
         }
         else{
             System.out.println("Invalid data in the file.");
-            System.exit(0);
         }
 
         save();
