@@ -117,12 +117,6 @@ public class AppMenu {
 
     public String[] addNewToyPrompt() {
         String[] userentry = new String[10];
-        System.out.println("Note: The first digit of the serial number determines the type of the toy\n" +
-                "0 or 1: Figures\n" +
-                "2 or 3: Animals\n" +
-                "4, 5, or 6: Puzzles\n" +
-                "7, 8, or 9: Board Games");
-        System.out.println("Enter Serial Number:");
         String serialInput = input.nextLine();
         String toyType = "";
         try {

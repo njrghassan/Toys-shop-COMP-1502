@@ -33,6 +33,9 @@ public class SampleController implements Initializable{
     private Tab removeTab;
 
     @FXML
+    private TextField toyPrice;
+    
+    @FXML
     private Text companyLogo;
     @FXML
     private TextField boardDesign;
@@ -116,7 +119,10 @@ public class SampleController implements Initializable{
     private TextField aniSize;
     @FXML
     private TextField toyType;
+    @FXML
+    private TextField serialNumRemove;
 
+    
     @FXML
     private ComboBox<String> categoryBox;
     private String[] categories = {"Figures", "Animals", "Puzzles", "Board Games"};
@@ -369,15 +375,22 @@ public class SampleController implements Initializable{
 	
 	@FXML
     public void submit(ActionEvent event) {
-    	int addSn;
+    	String addSn;
         String addName;
         String addBrand;
-        int addAge;
+        String addAge;
         String addType;
-        int availableCount;
+        String availableCount;
+        String addPrice;
         
-        String classification, material, size, puzzleType, designer;
-        int maximum, minimum;
+        String classification = null,
+        		material = null,
+        		size = null,
+        		puzzleType = null,
+        		designer = null,
+        		minimum = null,
+        		maximum = null,
+        		addDesigner = null;
         
 		String classSelected = categoryBox.getValue();
         if (classSelected == "Figures") {
@@ -392,8 +405,8 @@ public class SampleController implements Initializable{
 			puzzleType = puzType.getText();
 		}
 		else if (classSelected == "Board Games") {
-			maximum = Integer.parseInt(boardMax.getText());
-			minimum = Integer.parseInt(boardMin.getText());
+			maximum = boardMax.getText();
+			minimum = boardMin.getText();
 			designer = boardDesign.getText(); 
 		}
         
@@ -401,16 +414,22 @@ public class SampleController implements Initializable{
     	
     	
     	try {
-    		availableCount = Integer.parseInt(toysAvailable.getText());
-    		addSn = Integer.parseInt(serialNum.getText());
+    		availableCount = toysAvailable.getText();
+    		addSn = serialNum.getText();
         	addName = toyName.getText();
         	addBrand = toyBrand.getText();
-        	addAge = Integer.parseInt(toyAge.getText());
+        	addAge = toyAge.getText();
         	addType = toyType.getText();
+        	addPrice = toyPrice.getText();
+        	
+        	String[] userInput = {classSelected, addSn, addName, addBrand, addPrice, availableCount, addAge, classification, puzzleType, material, size, minimum, maximum, addDesigner };
+        	System.out.println(userInput);
+        	manager.addNewToy(userInput);
     	}
     	catch (Exception e) {
     		e.printStackTrace();
     	}
+    	
     }
 	
     

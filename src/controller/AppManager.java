@@ -91,29 +91,28 @@ public class AppManager {
         return foundToys;
     }
 
-    public void addNewToy() {
-        String[] addToy = menu.addNewToyPrompt();
+    public void addNewToy(String[] addToy) {
 
         if (addToy[0] == "Figures"){
-            toys.add(new Figures(addToy[1], addToy[2], addToy[3], Double.parseDouble(addToy[4]), Integer.parseInt(addToy[5]), Integer.parseInt(addToy[6]), "Added"));
+            toys.add(new Figures(addToy[1], addToy[2], addToy[3], Double.parseDouble(addToy[4]), Integer.parseInt(addToy[5]), Integer.parseInt(addToy[6]), addToy[7]));
         }
         else if (addToy[0] == "Animals"){
-            toys.add(new Animals(addToy[1], addToy[2], addToy[3], Double.parseDouble(addToy[4]), Integer.parseInt(addToy[5]), Integer.parseInt(addToy[6]), "Added", 'A'));
+            toys.add(new Animals(addToy[1], addToy[2], addToy[3], Double.parseDouble(addToy[4]), Integer.parseInt(addToy[5]), Integer.parseInt(addToy[6]), addToy[9], addToy[10].charAt(0)));
         }
         else if (addToy[0] == "Puzzles"){
-            toys.add(new Puzzles(addToy[1], addToy[2], addToy[3], Double.parseDouble(addToy[4]), Integer.parseInt(addToy[5]), Integer.parseInt(addToy[6]), 'P'));
+            toys.add(new Puzzles(addToy[1], addToy[2], addToy[3], Double.parseDouble(addToy[4]), Integer.parseInt(addToy[5]), Integer.parseInt(addToy[6]), addToy[8].charAt(0)));
         }
         else if (addToy[0] == "BoardGames"){
-            int minPlayers = Integer.parseInt(addToy[7]);
-            int maxPlayers = Integer.parseInt(addToy[8]);
+            int minPlayers = Integer.parseInt(addToy[11]);
+            int maxPlayers = Integer.parseInt(addToy[12]);
             String[] designers;
-            if (addToy[9].contains(",")){
-                designers = addToy[9].split(",");
+            if (addToy[13].contains(",")){
+                designers = addToy[13].split(",");
             }
             else{
                 // If there is only one designer
                 designers = new String[1];
-                designers[0] = addToy[9];
+                designers[0] = addToy[13];
             }
             toys.add(new BoardGames(addToy[1], addToy[2], addToy[3], Double.parseDouble(addToy[4]), Integer.parseInt(addToy[5]), Integer.parseInt(addToy[6]), minPlayers, maxPlayers, designers));
         }
