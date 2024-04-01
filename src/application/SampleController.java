@@ -4,6 +4,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import controller.AppManager;
+import exceptions.AddingToyException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -386,12 +387,12 @@ public class SampleController implements Initializable{
 	@FXML
     public void submit(ActionEvent event) {
 		// Get all the input values
-    	String addSn,
-    		   addName,
-    		   addBrand,
-    		   addAge,
-    		   availableCount,
-    		   addPrice;
+    	String addSn = null,
+    		   addName = null,
+    		   addBrand = null,
+    		   addAge = null,
+    		   availableCount = null,
+    		   addPrice = null;
         
     	// Class inputs values
         String classification = null,
@@ -405,11 +406,46 @@ public class SampleController implements Initializable{
         // Get the selected category
 		String classSelected = categoryBox.getValue();
         if (classSelected == "Figures") {
-        	classification = figClass.getText();
+        	try {
+            	classification = figClass.getText();
+				if (classification == null) {
+					throw new AddingToyException("Please enter the classification");
+				}
+				else if (classification.isEmpty()) {
+					throw new AddingToyException("Please enter the classification");
+				}
+        	}
+			catch (AddingToyException e) {
+				errLabel.setText(e.getMessage());
+			}
+			finally {
+				errLabel.setText("classification added successfully!");
+			}
         }
 		else if (classSelected == "Animals") {
-			material = aniMat.getText();
-			size = aniSize.getText();
+			
+			try {
+				material = aniMat.getText();
+				size = aniSize.getText();
+				if (material == null) {
+					throw new AddingToyException("Please enter the material");
+				}
+				else if (size == null) {
+					throw new AddingToyException("Please enter the size");
+				}
+				else if (material.isEmpty()) {
+					throw new AddingToyException("Please enter the material");
+				}
+				else if (size.isEmpty()) {
+					throw new AddingToyException("Please enter the size");
+				}
+        	}
+			catch (AddingToyException e) {
+				errLabel.setText(e.getMessage());
+			}
+			finally {
+				errLabel.setText("classification added successfully!");
+			}
 		}
 		else if (classSelected == "Puzzles") {
 			puzzleType = puzType.getText();
@@ -422,12 +458,45 @@ public class SampleController implements Initializable{
 
     	// Add the toy to the inventory
     	try {
-    		addSn = serialNum.getText();
+    		
         	addName = toyName.getText();
         	addBrand = toyBrand.getText();
         	addPrice = toyPrice.getText();
     		availableCount = toysAvailable.getText();
         	addAge = toyAge.getText();
+        	
+        	try {
+        		addSn = serialNum.getText();
+				if (addSn == null) {
+					throw new AddingToyException("Please enter a Serial number!");
+				}
+				else if (addSn.length() < 10) {
+					throw new AddingToyException("Serial number must be at least 10 numbers long!");
+				}
+				else if (addSn.isEmpty()) {
+					throw new AddingToyException("Please enter the serial number!");
+				}
+        	}
+			catch (AddingToyException e) {
+				errLabel.setText(e.getMessage());
+			}
+			finally {
+				errLabel.setText("serial number added successfully!");
+			}
+        	
+        	for (int i = 0; i < addSn.length(); i++) {
+        		try {
+        			if (!Character.isDigit(addSn.charAt(i))) {
+        				throw new AddingToyException("serial number must be a number!");
+        			}
+        		}
+				catch (AddingToyException e) {
+					errLabel.setText(e.getMessage());
+				} 
+        		finally {
+					errLabel.setText("serial number added successfully!");
+				}
+        	}
 
         	
         	String[] userInput = {classSelected, addSn, addName, addBrand, addPrice, availableCount, addAge, classification, puzzleType, material, size, minimum, maximum, designer };
