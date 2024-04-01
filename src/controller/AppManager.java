@@ -41,7 +41,7 @@ public class AppManager {
      * It prompts the user to enter a serial number and then searches the inventory for the toy with that serial number
      * If the toy is found, it prompts the user to purchase it and then updates the toy's available count
      */
-    public String searchBySerialNumber(String serialNumber){
+    public ArrayList<Toys> searchBySerialNumber(String serialNumber){
         ArrayList<Toys> foundToys = new ArrayList<Toys>(); // This will store the found toys
 
         // Search the inventory for the toy with the given serial number
@@ -50,10 +50,8 @@ public class AppManager {
                 foundToys.add(toy);
             }
         }
-        
-        String text = menu.searchResultPrompt(foundToys);
-        
-        return text;
+                
+        return foundToys;
 
     }
 
@@ -62,7 +60,7 @@ public class AppManager {
      * It prompts the user to enter a toy name and then searches the inventory for the toy with that name
      * If the toy is found, it prompts the user to purchase it and then updates the toy's available count
      */
-    public String searchByToyName(String toyName){
+    public ArrayList<Toys> searchByToyName(String toyName){
         ArrayList<Toys> foundToys = new ArrayList<Toys>(); // This will store the found toys
 
         // Search the inventory for the toy with the given name
@@ -72,8 +70,7 @@ public class AppManager {
             }
         }
 
-        String text = menu.searchResultPrompt(foundToys);
-        return text;
+        return foundToys;
     }
 
     /**
@@ -81,7 +78,7 @@ public class AppManager {
      * It prompts the user to enter a toy type and then searches the inventory for the toy with that type
      * If the toy is found, it prompts the user to purchase it and then updates the toy's available count
      */
-    public String searchByToyType(String toyType){
+    public ArrayList<Toys> searchByToyType(String toyType){
         ArrayList<Toys> foundToys = new ArrayList<Toys>(); // This will store the found toys
 
         // Search the inventory for the toy with the given type
@@ -90,9 +87,8 @@ public class AppManager {
                 foundToys.add(toy);
             }
         }
-
-        String text = menu.searchResultPrompt(foundToys);
-        return text;
+        
+        return foundToys;
     }
 
     public void addNewToy() {
@@ -202,7 +198,8 @@ public class AppManager {
      */
     public void searchProsses(ArrayList<Toys> foundToys){
         // If the toy is found, prompt the user to purchase it and then update the toy's available count
-        String purchsed = menu.searchResultPrompt(foundToys);
+//        String purchsed = menu.searchResultPrompt(foundToys);
+        String purchsed = null;
         if (purchsed != null){
             System.out.println("You have purchased " + purchsed);
 
