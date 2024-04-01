@@ -275,11 +275,16 @@
                                     <Font name="Times New Roman" size="19.0" />
                                  </font>
                               </Label>
-                              <TextField fx:id="serialNumRemove" layoutX="14.0" layoutY="54.0" promptText="1234567890" />
+                              <TextField fx:id="serialNumRemove" layoutX="14.0" layoutY="54.0" onAction="#searchRemove" promptText="1234567890" />
                            </children>
                         </AnchorPane>
                         <ListView fx:id="listViewMenuForRemoving" layoutX="333.0" layoutY="79.0" prefHeight="508.0" prefWidth="875.0" />
-                        <Button fx:id="RemoveButton" layoutX="9.0" layoutY="446.0" mnemonicParsing="false" onAction="#searchButtonAction" prefHeight="73.0" prefWidth="174.0" text="Remove" translateX="50.0" translateY="50.0" />
+                        <Button fx:id="RemoveButton" layoutX="9.0" layoutY="446.0" mnemonicParsing="false" onAction="#remove" prefHeight="73.0" prefWidth="174.0" text="Remove" translateX="50.0" translateY="50.0" />
+                        <Label fx:id="errLabelRemove" layoutX="756.0" layoutY="624.0" textAlignment="CENTER">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
                      </children>
                   </AnchorPane>
                </content>

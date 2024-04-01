@@ -16,7 +16,7 @@ import model.*;
 
 /*
  * This class is responsible for managing the application
- * @Author: Ghassan, Akram, and Mohamed
+ * @Author: Ghassan, Akram, and Abdul-Ruhman
  * @Version: 1.0
  * @Date: 2024, March 10
  */
@@ -50,7 +50,8 @@ public class AppManager {
                 foundToys.add(toy);
             }
         }
-                
+          
+        System.out.println(foundToys);
         return foundToys;
 
     }
@@ -139,16 +140,18 @@ public class AppManager {
      * It prompts the user to enter the serial number of the toy to remove
      * It then searches the inventory for the toy with that serial number and removes it
      */
-    public void removeToy() {
-        String removeSN = menu.promoteSerialNumberInput();
+    public boolean removeToy(String removeSN) {
+        boolean flag = false;
+        
         for (Toys toy : toys){
          if (toy.getSN().equals(removeSN)){
                 toys.remove(toy);
                 System.out.println("The toy has been removed successfully!");
+                flag = true;
                 break;
              }
          }
-        
+        return flag;
      }
  
     /**

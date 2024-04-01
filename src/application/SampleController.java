@@ -42,7 +42,8 @@ public class SampleController implements Initializable{
 
     @FXML
     private TextField boardMax;
-
+    @FXML
+    private Button RemoveButton;
     @FXML
     private TextField boardMin;
     @FXML
@@ -126,6 +127,13 @@ public class SampleController implements Initializable{
     @FXML
     private ComboBox<String> categoryBox;
     private String[] categories = {"Figures", "Animals", "Puzzles", "Board Games"};
+    
+    
+    @FXML
+    private ListView<String> listViewMenuForRemoving;
+    
+    @FXML
+    private Label errLabelRemove;
     
     AppManager manager = new AppManager();
     AppMenu menu = new AppMenu();
@@ -430,7 +438,74 @@ public class SampleController implements Initializable{
     		e.printStackTrace();
     	}
     	
+    
+    
+    	
     }
+	
+	public void searchRemove(ActionEvent event) {
+		String sn;
+		sn = serialNumRemove.getText();
+
+		if (sn != ""){
+            String index = "";
+            listViewMenuForRemoving.getItems().clear();           
+            int i = 1;
+			for (Toys listText : manager.searchBySerialNumber(sn)) {
+				if (i < 10) {
+					index = String.valueOf(i) + " ";
+				}
+				else {
+					index = String.valueOf(i);
+				}
+				
+				listViewMenuForRemoving.getItems().addAll(index+
+						" " + listText.getName() + 
+						"\t" + listText.getBrand()+ 
+						"\t$" + listText.getPrice()+ 
+						" \tAV:" + listText.getAvaiableCount()+
+						" \tAge:" + listText.getAgeAppropriate()+
+						"\t" + listText.getClass().getSimpleName()+
+						"\t" + listText.getSN());
+						
+				
+				// Reset index
+				i++;
+				index = String.valueOf(i);
+				
+            }
+			
+			System.out.println("asnjkdsagdsasad");
+		}
+	}
+	
+	@FXML
+    public void remove(ActionEvent event) {
+		try {
+			String selectedItem = listViewMenuForRemoving.getSelectionModel().getSelectedItem();
+			String removeSN = serialNumRemove.getText();
+			
+			if (manager.removeToy(removeSN)) {
+				listViewMenuForRemoving.getItems().clear();
+				errLabelRemove.setText("Item bought successfully!");
+			} else {
+				errLabelRemove.setText("Item not available!");
+			}
+
+		}
+		catch (NullPointerException ex) {
+			errLabelRemove.setText("Please select an item!");
+		}
+		catch (Exception ex) {
+			errLabelRemove.setText(ex.getMessage());
+		}
+		
+		
+		
+		
+		
+		
+	}
 	
     
 
