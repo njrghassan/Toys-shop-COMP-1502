@@ -94,7 +94,7 @@ public class AppManager {
     public void addNewToy(String[] addToy) {
 
         if (addToy[0] == "Figures"){
-            toys.add(new Figures(addToy[1], addToy[2], addToy[3], Double.parseDouble(addToy[4]), Integer.parseInt(addToy[5]), Integer.parseInt(addToy[6]), addToy[7]));
+            toys.add(new Figures(addToy[1], addToy[2], addToy[3], Double.parseDouble(addToy[4]), Integer.parseInt(addToy[5]), Integer.parseInt(addToy[6]), addToy[7].charAt(0)));
         }
         else if (addToy[0] == "Animals"){
             toys.add(new Animals(addToy[1], addToy[2], addToy[3], Double.parseDouble(addToy[4]), Integer.parseInt(addToy[5]), Integer.parseInt(addToy[6]), addToy[9], addToy[10].charAt(0)));
@@ -243,7 +243,7 @@ public class AppManager {
                         // Create the toys based on the serial number and add them to their aoopriate arraylist from the parent class (toys)
                         // Figures
                         if (SerialNumber == '0' || SerialNumber == '1'){
-                            toys.add(new Figures(currentData[0], currentData[1], currentData[2], Double.parseDouble(currentData[3]), Integer.parseInt(currentData[4]), Integer.parseInt(currentData[5]), currentData[6]));
+                            toys.add(new Figures(currentData[0], currentData[1], currentData[2], Double.parseDouble(currentData[3]), Integer.parseInt(currentData[4]), Integer.parseInt(currentData[5]), currentData[6].charAt(0)));
                         }
                         // Animals
                         else if(SerialNumber == '2' || SerialNumber == '3'){

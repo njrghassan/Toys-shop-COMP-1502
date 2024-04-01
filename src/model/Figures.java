@@ -2,9 +2,9 @@ package model;
 
 public class Figures extends Toys{
 
-    private String classification;
+    private char classification;
 
-    public Figures(String SN, String name, String brand, double price, int avaiableCount, int ageAppropriate, String classification) {
+    public Figures(String SN, String name, String brand, double price, int avaiableCount, int ageAppropriate, char classification) {
         super(SN, name, brand, price, avaiableCount, ageAppropriate);
         this.classification = classification;
     }
@@ -13,7 +13,7 @@ public class Figures extends Toys{
      * This is the getter for the classification attribute
      * @return classification
      */
-    public String getClassification() {
+    public char getClassification() {
         return classification;
     }
 
@@ -21,7 +21,7 @@ public class Figures extends Toys{
      * This is the setter for the classification attribute
      * @param classification
      */
-    public void setClassification(String classification) {
+    public void setClassification(char classification) {
         this.classification = classification;
     }
 

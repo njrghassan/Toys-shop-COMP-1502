@@ -38,19 +38,25 @@ public class SampleController implements Initializable{
     
     @FXML
     private Text companyLogo;
+    
     @FXML
     private TextField boardDesign;
 
     @FXML
     private TextField boardMax;
+    
     @FXML
     private Button RemoveButton;
+    
     @FXML
     private TextField boardMin;
+    
     @FXML
     private TextField puzType;
+    
     @FXML
     private ToggleGroup inventorySearch;
+    
     @FXML
     private TextField toysAvailable;
     
@@ -98,6 +104,7 @@ public class SampleController implements Initializable{
     
     @FXML
     private Label errLabel;
+    
     @FXML
     private TextField serialNum;
 
@@ -112,30 +119,36 @@ public class SampleController implements Initializable{
     
     @FXML
     private Button SaveButton;
+    
     @FXML
     private TextField figClass;
+    
     @FXML
     private TextField aniMat;
 
     @FXML
     private TextField aniSize;
+    
     @FXML
     private TextField toyType;
+    
     @FXML
     private TextField serialNumRemove;
-
     
     @FXML
     private ComboBox<String> categoryBox;
-    private String[] categories = {"Figures", "Animals", "Puzzles", "Board Games"};
-    
+    private String[] categories = {"Figures", "Animals", "Puzzles", "Board Games"}; // Categories
     
     @FXML
     private ListView<String> listViewMenuForRemoving;
     
     @FXML
+    private Label errLabelAdd;
+    
+    @FXML
     private Label errLabelRemove;
     
+    // Creating the AppManager and AppMenu objects
     AppManager manager = new AppManager();
     AppMenu menu = new AppMenu();
 
@@ -237,7 +250,7 @@ public class SampleController implements Initializable{
         }
 		// Search by name
 		else if (nameRadioButton.isSelected()) {
-            String name = nameNumSeFeild.getText();
+            String name = nameNumSeFeild.getText().toLowerCase();
             String index = "";
             listViewMenu.getItems().clear();
             int i = 1;
@@ -266,7 +279,7 @@ public class SampleController implements Initializable{
         }
 		// Search by type
         else if (typeRadioButton.isSelected()) {
-            String type = typeNumSeFeild.getText();
+            String type = typeNumSeFeild.getText().toLowerCase();
             String index = "";
             listViewMenu.getItems().clear();
             int i = 1;
@@ -402,114 +415,104 @@ public class SampleController implements Initializable{
         		designer = null,
         		minimum = null,
         		maximum = null;
-        
-        // Get the selected category
-		String classSelected = categoryBox.getValue();
-        if (classSelected == "Figures") {
-        	try {
-            	classification = figClass.getText();
-				if (classification == null) {
-					throw new AddingToyException("Please enter the classification");
-				}
-				else if (classification.isEmpty()) {
-					throw new AddingToyException("Please enter the classification");
+        try {
+        	// Get the selected category
+        	String classSelected = categoryBox.getValue();
+        	
+        	if (classSelected == "Figures") {
+        		classification = figClass.getText();
+        	
+        		if (classification == null || classification.isEmpty()) {
+        			throw new AddingToyException("Please enter the required feilds for Figures!");
+        		}
+				else if (!(classification.equals("A") || classification.equals("D")|| classification.equals("H") ||
+						classification.equals("a") || classification.equals("d") || classification.equals("h"))) {
+					throw new AddingToyException("Classification must be A, D or H!");
 				}
         	}
-			catch (AddingToyException e) {
-				errLabel.setText(e.getMessage());
-			}
-			finally {
-				errLabel.setText("classification added successfully!");
-			}
-        }
-		else if (classSelected == "Animals") {
+        	else if (classSelected == "Animals") {
+        		material = aniMat.getText();
+        		size = aniSize.getText();
 			
-			try {
-				material = aniMat.getText();
-				size = aniSize.getText();
-				if (material == null) {
-					throw new AddingToyException("Please enter the material");
+        		if (material == null || material.isEmpty() || size == null || size.isEmpty()) {
+					throw new AddingToyException("Please enter the required feilds for Animals!");
 				}
-				else if (size == null) {
-					throw new AddingToyException("Please enter the size");
-				}
-				else if (material.isEmpty()) {
-					throw new AddingToyException("Please enter the material");
-				}
-				else if (size.isEmpty()) {
-					throw new AddingToyException("Please enter the size");
+        		else if (!(size.equals("S") || size.equals("M") || size.equals("L") ||
+        		           size.equals("s") || size.equals("m") || size.equals("l"))) {
+        		  throw new AddingToyException("Size must be S, M or L!");
+        		}
+				else if (size.length() > 1) {
+					throw new AddingToyException("Size must be one letter long!");
 				}
         	}
-			catch (AddingToyException e) {
-				errLabel.setText(e.getMessage());
-			}
-			finally {
-				errLabel.setText("classification added successfully!");
-			}
-		}
-		else if (classSelected == "Puzzles") {
-			puzzleType = puzType.getText();
-		}
-		else if (classSelected == "Board Games") {
-			maximum = boardMax.getText();
-			minimum = boardMin.getText();
-			designer = boardDesign.getText(); 
-		}
+        	else if (classSelected == "Puzzles") {
+        		puzzleType = puzType.getText();
+			
+        		if (puzzleType == null || puzzleType.isEmpty()) {
+        			throw new AddingToyException("Please enter the required feilds for Puzzles!");
+        		}
+        		else if (!(puzzleType.equals("M") || puzzleType.equals("C") || puzzleType.equals("L") ||
+        		           puzzleType.equals("T") || puzzleType.equals("R") ||
+        		           puzzleType.equals("m") || puzzleType.equals("c") || puzzleType.equals("l") ||
+        		           puzzleType.equals("t") || puzzleType.equals("r"))) {
+        		  throw new AddingToyException("Puzzle type must be M, C, L, T or R!");
+        		}
 
-    	// Add the toy to the inventory
-    	try {
-    		
+        	}
+        	else if (classSelected == "Board Games") {
+        		maximum = boardMax.getText();
+        		minimum = boardMin.getText();
+        		designer = boardDesign.getText(); 
+			
+        		if (maximum == null || maximum.isEmpty() || minimum == null || minimum.isEmpty() || 
+        				designer == null || designer.isEmpty()) {
+        			throw new AddingToyException("Please enter the required feilds for Board Games!");
+        		}
+				else if (Integer.parseInt(minimum) > Integer.parseInt(maximum)) {
+					throw new AddingToyException("Minimum players must be less than maximum players!");
+				}
+        	}
+			else {
+				throw new AddingToyException("Please select a category!");
+			}
+        	
+        	// Add the toy to the inventory
+    		addSn = serialNum.getText();
         	addName = toyName.getText();
         	addBrand = toyBrand.getText();
         	addPrice = toyPrice.getText();
     		availableCount = toysAvailable.getText();
         	addAge = toyAge.getText();
         	
-        	try {
-        		addSn = serialNum.getText();
-				if (addSn == null) {
-					throw new AddingToyException("Please enter a Serial number!");
-				}
-				else if (addSn.length() < 10) {
-					throw new AddingToyException("Serial number must be at least 10 numbers long!");
-				}
-				else if (addSn.isEmpty()) {
-					throw new AddingToyException("Please enter the serial number!");
-				}
-        	}
-			catch (AddingToyException e) {
-				errLabel.setText(e.getMessage());
+        	if (addSn == null || addSn.isEmpty() || addName == null || 
+        			addName.isEmpty() || addBrand == null || addBrand.isEmpty() || 
+        			addPrice == null || addPrice.isEmpty() || availableCount == null || 
+        			availableCount.isEmpty() || addAge == null || addAge.isEmpty()) {
+				throw new AddingToyException("Please enter the required feilds!");
 			}
-			finally {
-				errLabel.setText("serial number added successfully!");
+			else if (addSn.length() < 10) {
+				throw new AddingToyException("Serial number must be at least 10 numbers long!");
 			}
         	
+        	// Check if the serial number is a number
         	for (int i = 0; i < addSn.length(); i++) {
-        		try {
-        			if (!Character.isDigit(addSn.charAt(i))) {
-        				throw new AddingToyException("serial number must be a number!");
-        			}
-        		}
-				catch (AddingToyException e) {
-					errLabel.setText(e.getMessage());
-				} 
-        		finally {
-					errLabel.setText("serial number added successfully!");
-				}
+        		if (!Character.isDigit(addSn.charAt(i))) {
+        			throw new AddingToyException("serial number must be a number!");
+        		}       			
         	}
-
-        	
+	
         	String[] userInput = {classSelected, addSn, addName, addBrand, addPrice, availableCount, addAge, classification, puzzleType, material, size, minimum, maximum, designer };
         	System.out.println(userInput);
         	manager.addNewToy(userInput);
+        	errLabelAdd.setText("Item added successfully!");
     	}
+    	catch (AddingToyException e) {
+    		errLabelAdd.setText(e.getMessage());
+		} 
     	catch (Exception e) {
-    		e.printStackTrace();
+    		errLabelAdd.setText(e.getMessage());
     	}
-    	
-    
-    
-    	
+		
     }
 	
 	public void searchRemove(ActionEvent event) {
@@ -567,14 +570,5 @@ public class SampleController implements Initializable{
 		catch (Exception ex) {
 			errLabelRemove.setText(ex.getMessage());
 		}
-		
-		
-		
-		
-		
-		
 	}
-	
-    
-
 }
