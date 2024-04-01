@@ -34,10 +34,21 @@ public class SampleController implements Initializable{
 
     @FXML
     private Text companyLogo;
-    
+    @FXML
+    private TextField boardDesign;
+
+    @FXML
+    private TextField boardMax;
+
+    @FXML
+    private TextField boardMin;
+    @FXML
+    private TextField puzType;
     @FXML
     private ToggleGroup inventorySearch;
-
+    @FXML
+    private TextField toysAvailable;
+    
     @FXML
     private RadioButton snRadioButton;
     
@@ -82,6 +93,29 @@ public class SampleController implements Initializable{
     
     @FXML
     private Label errLabel;
+    @FXML
+    private TextField serialNum;
+
+    @FXML
+    private TextField toyAge;
+
+    @FXML
+    private TextField toyBrand;
+
+    @FXML
+    private TextField toyName;
+    
+    @FXML
+    private Button SaveButton;
+    @FXML
+    private TextField figClass;
+    @FXML
+    private TextField aniMat;
+
+    @FXML
+    private TextField aniSize;
+    @FXML
+    private TextField toyType;
 
     @FXML
     private ComboBox<String> categoryBox;
@@ -114,7 +148,15 @@ public class SampleController implements Initializable{
         categoryBox.getItems().addAll(categories);
         categoryBox.setOnAction(this::getSelectedItem);
         
-
+        
+        
+        figClass.setDisable(true);
+        aniMat.setDisable(true);
+		aniSize.setDisable(true);
+		puzType.setDisable(true);
+		boardMax.setDisable(true);
+		boardMin.setDisable(true);
+		boardDesign.setDisable(true);
 
     }
 	
@@ -272,11 +314,81 @@ public class SampleController implements Initializable{
 	public void getSelectedItem(ActionEvent e) {
 		String classSelected = categoryBox.getValue();
 		System.out.println(classSelected);
-		
+		try {
 		if (classSelected == "Figures") {
-			System.out.println("yeay");
+			figClass.setDisable(false);
+					}
+		else if (classSelected == "Animals") {
+			aniMat.setDisable(false);
+			aniSize.setDisable(false);
+					}
+		else if (classSelected == "Puzzles") {
+			puzType.setDisable(false);
+			
 		}
+		else if (classSelected == "Board Games") {
+			boardMax.setDisable(false);
+			boardMin.setDisable(false);
+			boardDesign.setDisable(false);
+						
+			
+		}
+		}
+		catch(Exception ex) {
+			ex.printStackTrace();
+			
+		}
+		
+	
+	
+
 	}
+	
+	@FXML
+    public void submit(ActionEvent event) {
+    	int addSn;
+        String addName;
+        String addBrand;
+        int addAge;
+        String addType;
+        int availableCount;
+        
+        String classification, material, size, puzzleType, designer;
+        int maximum, minimum;
+        
+		String classSelected = categoryBox.getValue();
+        if (classSelected == "Figures") {
+        	classification = figClass.getText();
+			System.out.println("yeay");
+        }
+		else if (classSelected == "Animals") {
+			material = aniMat.getText();
+			size = aniSize.getText();
+		}
+		else if (classSelected == "Puzzles") {
+			puzzleType = puzType.getText();
+		}
+		else if (classSelected == "Board Games") {
+			maximum = Integer.parseInt(boardMax.getText());
+			minimum = Integer.parseInt(boardMin.getText());
+			designer = boardDesign.getText(); 
+		}
+        
+        
+    	
+    	
+    	try {
+    		availableCount = Integer.parseInt(toysAvailable.getText());
+    		addSn = Integer.parseInt(serialNum.getText());
+        	addName = toyName.getText();
+        	addBrand = toyBrand.getText();
+        	addAge = Integer.parseInt(toyAge.getText());
+        	addType = toyType.getText();
+    	}
+    	catch (Exception e) {
+    		e.printStackTrace();
+    	}
+    }
 	
     
 

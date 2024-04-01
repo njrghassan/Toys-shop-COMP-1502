@@ -86,12 +86,7 @@
                         <Button fx:id="searchButton" layoutX="17.0" layoutY="450.0" mnemonicParsing="false" onAction="#searchButtonAction" prefHeight="34.0" prefWidth="97.0" text="Search" translateX="50.0" translateY="50.0" />
                         <Button layoutX="152.0" layoutY="450.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="97.0" text="Clear" translateX="50.0" translateY="50.0" />
                         <ListView fx:id="listViewMenu" layoutX="378.0" layoutY="61.0" prefHeight="508.0" prefWidth="875.0" />
-                        <Button fx:id="buyButtton" layoutX="740.0" layoutY="547.0" mnemonicParsing="false" onAction="#buyButtonAction" prefHeight="34.0" prefWidth="97.0" text="Buy" translateX="50.0" translateY="50.0" />
-                        <Label fx:id="errLabel" layoutX="840.0" layoutY="645.0">
-                           <font>
-                              <Font size="14.0" />
-                           </font>
-                        </Label>
+                        <Button layoutX="740.0" layoutY="547.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="97.0" text="Buy" translateX="50.0" translateY="50.0" />
                      </children>
                   </AnchorPane>
             </content>
@@ -186,7 +181,7 @@
                                                 <Font size="14.0" />
                                              </font>
                                           </Label>
-                                          <TextField layoutX="211.0" layoutY="102.0" />
+                                          <TextField fx:id="figClass" layoutX="211.0" layoutY="102.0" />
                                        </children>
                                     </AnchorPane>
                                     <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
@@ -201,13 +196,13 @@
                                                 <Font size="14.0" />
                                              </font>
                                           </Label>
-                                          <TextField layoutX="211.0" layoutY="102.0" />
+                                          <TextField fx:id="aniMat" layoutX="211.0" layoutY="102.0" />
                                           <Label layoutX="109.0" layoutY="104.0" text="Size" translateY="31.0">
                                              <font>
                                                 <Font size="14.0" />
                                              </font>
                                           </Label>
-                                          <TextField layoutX="211.0" layoutY="102.0" translateY="31.0" />
+                                          <TextField fx:id="aniSize" layoutX="211.0" layoutY="102.0" translateY="31.0" />
                                        </children>
                                     </AnchorPane>
                                     <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
@@ -222,7 +217,7 @@
                                                 <Font size="14.0" />
                                              </font>
                                           </Label>
-                                          <TextField layoutX="211.0" layoutY="102.0" />
+                                          <TextField fx:id="puzType" layoutX="211.0" layoutY="102.0" />
                                        </children>
                                     </AnchorPane>
                                     <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
@@ -237,19 +232,19 @@
                                                 <Font size="14.0" />
                                              </font>
                                           </Label>
-                                          <TextField layoutX="285.0" layoutY="102.0" prefHeight="25.0" prefWidth="75.0" />
+                                          <TextField fx:id="boardMin" layoutX="285.0" layoutY="102.0" prefHeight="25.0" prefWidth="75.0" />
                                           <Label layoutX="82.0" layoutY="104.0" text="Maximum Numbers of Players" translateY="31.0">
                                              <font>
                                                 <Font size="14.0" />
                                              </font>
                                           </Label>
-                                          <TextField layoutX="285.0" layoutY="102.0" prefHeight="25.0" prefWidth="75.0" translateY="31.0" />
+                                          <TextField fx:id="boardMax" layoutX="285.0" layoutY="102.0" prefHeight="25.0" prefWidth="75.0" translateY="31.0" />
                                           <Label layoutX="82.0" layoutY="135.0" text="Designers" translateY="31.0">
                                              <font>
                                                 <Font size="14.0" />
                                              </font>
                                           </Label>
-                                          <TextField layoutX="165.0" layoutY="133.0" prefHeight="25.0" prefWidth="195.0" translateY="31.0" />
+                                          <TextField fx:id="boardDesign" layoutX="165.0" layoutY="133.0" prefHeight="25.0" prefWidth="195.0" translateY="31.0" />
                                        </children>
                                     </AnchorPane>
                                  </children>
