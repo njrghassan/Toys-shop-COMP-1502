@@ -2,15 +2,31 @@
 <!DOCTYPE log SYSTEM "logger.dtd">
 <log>
 <record>
-  <date>2024-04-01T23:44:33.372227900Z</date>
-  <millis>1712015073372</millis>
-  <nanos>227900</nanos>
+  <date>2024-04-02T01:36:21.590357300Z</date>
+  <millis>1712021781590</millis>
+  <nanos>357300</nanos>
   <sequence>0</sequence>
   <logger>global</logger>
   <level>INFO</level>
-  <class>logging.AppLog</class>
-  <method>main</method>
-  <thread>1</thread>
-  <message>user logged</message>
+  <class>application.Main</class>
+  <method>start</method>
+  <thread>18</thread>
+  <message>Application launched successfully.</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2024-04-02T01:36:34.811600800Z</date>
+  <millis>1712021794811</millis>
+  <nanos>600800</nanos>
+  <sequence>0</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>application.Main</class>
+  <method>start</method>
+  <thread>18</thread>
+  <message>Application launched successfully.</message>
 </record>
 </log>
