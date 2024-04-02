@@ -40,6 +40,8 @@ public class AppManager {
      * This method handles the search by serial number option
      * It prompts the user to enter a serial number and then searches the inventory for the toy with that serial number
      * If the toy is found, it prompts the user to purchase it and then updates the toy's available count
+     * @param serialNumber
+     * @return foundToys
      */
     public ArrayList<Toys> searchBySerialNumber(String serialNumber){
         ArrayList<Toys> foundToys = new ArrayList<Toys>(); // This will store the found toys
@@ -59,6 +61,9 @@ public class AppManager {
      * This method handles the search by toy name option
      * It prompts the user to enter a toy name and then searches the inventory for the toy with that name
      * If the toy is found, it prompts the user to purchase it and then updates the toy's available count
+     * 
+     * @param toyName
+     * @return foundToys
      */
     public ArrayList<Toys> searchByToyName(String toyName){
         ArrayList<Toys> foundToys = new ArrayList<Toys>(); // This will store the found toys
@@ -77,6 +82,9 @@ public class AppManager {
      * This method handles the search by toy type option
      * It prompts the user to enter a toy type and then searches the inventory for the toy with that type
      * If the toy is found, it prompts the user to purchase it and then updates the toy's available count
+     * 
+     * @param toyType
+     * @return foundToys
      */
     public ArrayList<Toys> searchByToyType(String toyType){
         ArrayList<Toys> foundToys = new ArrayList<Toys>(); // This will store the found toys
@@ -90,7 +98,12 @@ public class AppManager {
         
         return foundToys;
     }
-
+    
+    /**
+     * Takes in input from sample controller to add toy into arraylist.
+     * 
+     * @param addToy
+     */
     public void addNewToy(String[] addToy) {
 
         if (addToy[0] == "Figures"){
@@ -122,7 +135,13 @@ public class AppManager {
 
         save();
     }
-
+    /**
+     * Formats the toys in the toString method.
+     * 
+     * @param addToy
+     * @return toy.
+     * 
+     */
     public String toyToString(String[] addToy) {
         String toy = "";
         toy = addToy[0] + ";" + addToy[1] + ";" + addToy[2] + ";" + addToy[3] + ";" + addToy[4] + "-" + addToy[5];
@@ -133,10 +152,13 @@ public class AppManager {
         return toy;
     }
      
-    /*/
+    /**
      * This method handles the remove toy option
      * It prompts the user to enter the serial number of the toy to remove
      * It then searches the inventory for the toy with that serial number and removes it
+     * 
+     * @param removeSN
+     * @return flag
      */
     public boolean removeToy(String removeSN) {
         boolean flag = false;
@@ -196,6 +218,9 @@ public class AppManager {
      * This method handles the search by toy type option
      * It prompts the user to enter a toy type and then searches the inventory for the toy with that type
      * If the toy is found, it prompts the user to purchase it and then updates the toy's available count
+     * @param purchsed
+     * @return isPurchased
+     * 
      */
     public boolean buyToy(String purchsed){
     	boolean isPurchased = false;

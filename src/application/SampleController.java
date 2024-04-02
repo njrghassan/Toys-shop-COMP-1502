@@ -212,7 +212,7 @@ public class SampleController implements Initializable{
 		
 	}
 	
-	/*
+	/**
 	 * Search button action to search the item in the inventory.
      * @param e
 	 */
