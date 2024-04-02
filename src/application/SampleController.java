@@ -2,6 +2,8 @@ package application;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import controller.AppManager;
 import exceptions.AddingToyException;
@@ -21,6 +23,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import model.Toys;
 import view.AppMenu;
+import application.Main;
 
 public class SampleController implements Initializable{
     
@@ -165,6 +168,8 @@ public class SampleController implements Initializable{
 		}
 		catch (Exception e) {
 			e.printStackTrace();
+    		Main.LOGR.log(Level.SEVERE, "Error 00445", e.getMessage());
+
 		}
 		
 		// Text fields disabled
@@ -326,9 +331,11 @@ public class SampleController implements Initializable{
 		}
 		catch (NullPointerException ex) {
 			errLabel.setText("Please select an item!");
+    		Main.LOGR.log(Level.SEVERE, "Error buying item", ex.getMessage());
 		}
 		catch (Exception ex) {
 			errLabel.setText(ex.getMessage());
+    		Main.LOGR.log(Level.SEVERE, "Error buying item", ex.getMessage());
 		}
 	}	
 
@@ -384,7 +391,7 @@ public class SampleController implements Initializable{
 		}
 		catch(Exception ex) {
 			ex.printStackTrace();
-			
+    		Main.LOGR.log(Level.SEVERE, "Error Selecting item", ex.getMessage());
 		}
 	}
 	/**
@@ -406,7 +413,7 @@ public class SampleController implements Initializable{
 	 * classification, material, size, designer, minimum, maximum.
 	 */
 	@FXML
-    public void submit(ActionEvent event) {
+    public void submit(ActionEvent event){
 		// Get all the input values
     	String addSn = null,
     		   addName = null,
@@ -516,10 +523,9 @@ public class SampleController implements Initializable{
     	}
     	catch (AddingToyException e) {
     		errLabelAdd.setText(e.getMessage());
+    		Main.LOGR.log(Level.SEVERE, "Error adding toy", e.getMessage());
 		} 
-    	catch (Exception e) {
-    		errLabelAdd.setText(e.getMessage());
-    	}
+    	
 		
     }
 	/**
@@ -583,9 +589,12 @@ public class SampleController implements Initializable{
 		}
 		catch (NullPointerException ex) {
 			errLabelRemove.setText("Please select an item!");
+    		Main.LOGR.log(Level.SEVERE, "Error selecting an item", ex.getMessage());
+
 		}
 		catch (Exception ex) {
 			errLabelRemove.setText(ex.getMessage());
+    		Main.LOGR.log(Level.SEVERE, "Error removing toy", ex.getMessage());
 		}
 	}
 }

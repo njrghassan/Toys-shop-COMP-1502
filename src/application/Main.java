@@ -19,7 +19,7 @@ import javafx.fxml.FXMLLoader;
  */
 public class Main extends Application{
 	
-    private static final Logger LOGR = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
+    public static final Logger LOGR = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 
 	@Override
 	public void start(Stage primaryStage) throws Exception{
@@ -39,7 +39,7 @@ public class Main extends Application{
 			LOGR.log(Level.INFO, "Application launched successfully.");
 		}
 		catch (IOException e) {
-			LOGR.log(Level.SEVERE, "Error loading FXML", e);
+			LOGR.log(Level.SEVERE, "Error loading FXML", e.getMessage());
 		}
 	}
 	
