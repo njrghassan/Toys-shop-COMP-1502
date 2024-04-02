@@ -3393,3 +3393,135 @@
   <param>class model.Animals cannot be cast to class model.Figures (model.Animals and model.Figures are in unnamed module of loader 'app')</param>
 </record>
 </log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2024-04-02T02:06:28.342528Z</date>
+  <millis>1712023588342</millis>
+  <nanos>528000</nanos>
+  <sequence>0</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>application.Main</class>
+  <method>start</method>
+  <thread>18</thread>
+  <message>Application launched successfully.</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1252" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2024-04-02T03:33:43.713200300Z</date>
+  <millis>1712028823713</millis>
+  <nanos>200300</nanos>
+  <sequence>0</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>application.Main</class>
+  <method>start</method>
+  <thread>18</thread>
+  <message>Application launched successfully.</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1252" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2024-04-02T03:34:09.301836700Z</date>
+  <millis>1712028849301</millis>
+  <nanos>836700</nanos>
+  <sequence>0</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>application.Main</class>
+  <method>start</method>
+  <thread>18</thread>
+  <message>Application launched successfully.</message>
+</record>
+<record>
+  <date>2024-04-02T03:34:38.960158700Z</date>
+  <millis>1712028878960</millis>
+  <nanos>158700</nanos>
+  <sequence>1</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>application.SampleController</class>
+  <method>submit</method>
+  <thread>18</thread>
+  <message>Error adding toy</message>
+  <param>Please select a category!</param>
+</record>
+<record>
+  <date>2024-04-02T03:34:43.354749100Z</date>
+  <millis>1712028883354</millis>
+  <nanos>749100</nanos>
+  <sequence>2</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>application.SampleController</class>
+  <method>submit</method>
+  <thread>18</thread>
+  <message>Error adding toy</message>
+  <param>Please enter the required feilds for Figures!</param>
+</record>
+<record>
+  <date>2024-04-02T03:34:46.568236800Z</date>
+  <millis>1712028886568</millis>
+  <nanos>236800</nanos>
+  <sequence>3</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>application.SampleController</class>
+  <method>submit</method>
+  <thread>18</thread>
+  <message>Error adding toy</message>
+  <param>Classification must be A, D or H!</param>
+</record>
+<record>
+  <date>2024-04-02T03:34:53.873524300Z</date>
+  <millis>1712028893873</millis>
+  <nanos>524300</nanos>
+  <sequence>4</sequence>
+  <logger>global</logger>
+  <level>SEVERE</level>
+  <class>application.SampleController</class>
+  <method>submit</method>
+  <thread>18</thread>
+  <message>Error adding toy</message>
+  <param>Classification must be A, D or H!</param>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1252" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2024-04-02T03:35:34.399619800Z</date>
+  <millis>1712028934399</millis>
+  <nanos>619800</nanos>
+  <sequence>0</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>application.Main</class>
+  <method>start</method>
+  <thread>18</thread>
+  <message>Application launched successfully.</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1252" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2024-04-02T03:35:54.566179800Z</date>
+  <millis>1712028954566</millis>
+  <nanos>179800</nanos>
+  <sequence>0</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>application.Main</class>
+  <method>start</method>
+  <thread>18</thread>
+  <message>Application launched successfully.</message>
+</record>
+</log>
