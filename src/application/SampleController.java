@@ -387,7 +387,10 @@ public class SampleController implements Initializable{
 			
 		}
 	}
-	
+	/**
+	 * Clear button action to clear the text fields.
+	 * @param e
+	 */
 	@FXML
 	public void clearButtonAction(ActionEvent e) {
 		serialNumSeFeild.clear();
@@ -396,7 +399,12 @@ public class SampleController implements Initializable{
 		listViewMenu.getItems().clear();
 		errLabel.setText("");	
 	}
-	
+	/**
+	 * Submit button action to take all inputs and convert to data.
+	 * @param event
+	 * @var addSn, addName, addBrand, addAge, availableCount, addPrice
+	 * classification, material, size, designer, minimum, maximum.
+	 */
 	@FXML
     public void submit(ActionEvent event) {
 		// Get all the input values
@@ -514,7 +522,11 @@ public class SampleController implements Initializable{
     	}
 		
     }
-	
+	/**
+	 * Search button action in remove to search the item in the inventory.
+	 * @param event The action event.
+	 */
+	@FXML
 	public void searchRemove(ActionEvent event) {
 		String sn;
 		sn = serialNumRemove.getText();
@@ -549,6 +561,11 @@ public class SampleController implements Initializable{
 		}
 	}
 	
+	/**
+	 * Remove action to remove the item in the inventory.
+	 * @param event The action event
+	 * @var selectedItem, parts, removeSN
+	 */
 	@FXML
     public void remove(ActionEvent event) {
 		try {
