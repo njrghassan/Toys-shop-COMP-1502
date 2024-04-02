@@ -1,4 +1,4 @@
-package test;
+package modelTest;
 
 import model.Animals;
 import exceptions.NumberException;

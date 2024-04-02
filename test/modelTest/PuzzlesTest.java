@@ -1,25 +1,25 @@
-package test;
+package modelTest;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
 import exceptions.NumberException;
-import model.Figures;
+import model.Puzzles;
 
-class FiguresTest {
+class PuzzlesTest {
 
     @Test
     void test1() {
-        Figures f = new Figures("1112345678", "My Toy", "My Brand", 69.9, 3, 3, "Hello");
-        assertEquals("1112345678", f.getSN());
+        Puzzles p = new Puzzles("1987654321", "My Toy", "My Brand", 42.9, 3, 3, 'M');
+        assertEquals("1987654321", p.getSN());
     }
 
     @Test
     void test2() throws NumberException {
-        Figures f = new Figures("1112345678", "My Toy", "My Brand", -69.9, 3, 3, "Hello");
+        Puzzles p = new Puzzles("1987654321", "My Toy", "My Brand", -42.9, 3, 3, 'M');
 
-        if (f.getPrice() < 0) {
+        if (p.getPrice() < 0) {
             try {
                 throw new NumberException("Price cannot be negative");
             } catch (NumberException e) {
